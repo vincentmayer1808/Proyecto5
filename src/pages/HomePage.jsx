@@ -1,4 +1,4 @@
-// import React from 'react'
+
 import { Inicio } from '../components/inicio/Inicio'
 import { ServiceList } from '../components/servicelist/ServiceList'
 

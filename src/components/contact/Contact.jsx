@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const Contact = () => {
   const initForm = {
@@ -31,10 +31,9 @@ export const Contact = () => {
     <>
       <div className="container-fluid bg-light text-dark rounded">
         <div className="text-center">
-          <h2>Reserva con nosotros</h2>
+          <h2>Contactanos</h2>
           <p>
-            Reserva su consulta llenando este formulario, enviaremos un correo
-            de confirmación a la dirección indicada.
+           Nos puedes contactar llenando este formulario o escribiendonos a la red social de tu preferencía.
           </p>
         </div>
         <div className="p-3">
@@ -121,7 +120,7 @@ export const Contact = () => {
           </p>
           <p>
             <span>Ubicación : </span>
-            <span>Desde donde quieres</span>
+            <span>Desde donde quieres, mientras tengas coneccion internet</span>
           </p>
         </div>
         <div className="icon d-flex justify-content-evenly mb-3">
