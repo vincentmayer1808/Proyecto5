@@ -1,5 +1,7 @@
 
 
+// deberian ser Link o Navlink?
+
 export const Footer = () => {
   return (
     <>
@@ -16,19 +18,19 @@ export const Footer = () => {
           <div className="w-50">
             <h3>Servicios</h3>
             <p>
-              <a href="/">Consultora</a>
+              <a href="/ConsultoraPage">Consultora</a>
             </p>
             <p>
-              <a href="/">Capacitación</a>
+              <a href="/CapacitacionPage">Capacitación</a>
             </p>
             <p>
-              <a href="/">Coaching</a>
+              <a href="/CoachingPage">Coaching</a>
             </p>
             <p>
-              <a href="/">Reclutamiento</a>
+              <a href="/ReclutamientoPage">Reclutamiento</a>
             </p>
             <p>
-              <a href="/">Asesoría Laboral</a>
+              <a href="/AsesoriaPage">Asesoría Laboral</a>
             </p>
           </div>
         </div>
