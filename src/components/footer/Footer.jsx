@@ -18,19 +18,19 @@ export const Footer = () => {
           <div className="w-50">
             <h3>Servicios</h3>
             <p>
-              <a href="/ConsultoraPage">Consultora</a>
+              <a href="/ConsultorPage">Consultora</a>
             </p>
             <p>
-              <a href="/CapacitacionPage">Capacitación</a>
+              <a href="/CapacitationPage">Capacitación</a>
             </p>
             <p>
               <a href="/CoachingPage">Coaching</a>
             </p>
             <p>
-              <a href="/ReclutamientoPage">Reclutamiento</a>
+              <a href="/ReclutPage">Reclutamiento</a>
             </p>
             <p>
-              <a href="/AsesoriaPage">Asesoría Laboral</a>
+              <a href="/AsesoryPage">Asesoría Laboral</a>
             </p>
           </div>
         </div>

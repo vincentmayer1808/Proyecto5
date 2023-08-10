@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage'
 import { ServicesPage } from '../pages/ServicesPage'
 import { ContactPage } from '../pages/ContactPage'
-import { ReservacionPage } from '../pages/ReservacionPage'
-import { ConsultoraPage } from '../pages/ConsultoraPage'
+import { ReservationPage } from '../pages/ReservationPage'
+import { ConsultorPage } from '../pages/ConsultorPage'
 import { CoachingPage } from '../pages/CoachingPage'
-import { CapacitacionPage } from '../pages/CapacitacionPage'
-import { ReclutamientoPage } from '../pages/ReclutamientoPage'
-import { AsesoriaPage } from '../pages/AsesoriaPage'
+import { CapacitationPage } from '../pages/CapacitationPage'
+import { ReclutPage } from '../pages/ReclutPage'
+import { AsesoryPage } from '../pages/AsesoryPage'
 
 export const MainRouter = () => {
   return (
@@ -16,15 +16,14 @@ export const MainRouter = () => {
     <Routes>
     <Route path="/" element={<HomePage />} />
     <Route path="/ServicesPage" element={<ServicesPage />} />
-    <Route path="/ConsultoraPage" element={<ConsultoraPage />} />
-    <Route path="/CoachingPage" element={<CoachingPage />} />
-    <Route path="/CapacitacionPage" element={<CapacitacionPage />} />
-    <Route path="/ReclutamientoPage" element={<ReclutamientoPage />} />
-    <Route path="/AsesoriaPage" element={<AsesoriaPage />} />
     <Route path="/ContactPage" element={<ContactPage />} />
-    <Route path="/ReservacionPage" element={<ReservacionPage />} />
+    <Route path="/ReservationPage" element={<ReservationPage />} />
 
-
+   <Route path="/ConsultorPage" element={<ConsultorPage />} />
+    <Route path="/CoachingPage" element={<CoachingPage />} />
+    <Route path="/CapacitationPage" element={<CapacitationPage />} />
+    <Route path="/ReclutPage" element={<ReclutPage />} />
+    <Route path="/AsesoryPage" element={<AsesoryPage />} />
     </Routes>
     </>
   )

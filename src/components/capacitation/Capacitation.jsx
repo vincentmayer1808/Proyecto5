@@ -1,6 +1,6 @@
 
 
-export const Capacitacion = () => {
+export const Capacitation = () => {
   return (
     <div>capacitacion</div>
   )

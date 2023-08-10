@@ -1,6 +1,6 @@
 
 
-export const Consultora = () => {
+export const Consultor = () => {
   return (
     <div>consultora</div>
   )

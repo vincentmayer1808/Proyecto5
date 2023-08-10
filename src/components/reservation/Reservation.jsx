@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Reservacion = () => {
+export const Reservation = () => {
   const initForm = {
     username: "",
     email: "",

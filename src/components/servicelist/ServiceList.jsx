@@ -10,7 +10,7 @@ export const ServiceList = () => {
               Consultora psicolaboral y organizacional, revise los diferentes
               servicios de consultora que ofrecemos
             </p>
-            <a href="/ConsultoraPage">Ver Más</a>
+            <a href="/ConsultorPage">Ver Más</a>
           </div>
           <div>
             <h4>Capacitación</h4>
@@ -18,7 +18,7 @@ export const ServiceList = () => {
               Capacita laboralmente al personal de su organizacion con tecnicas
               basadas en la communicacion y el buen trato laboral
             </p>
-            <a href="/CapacitacionPage">Ver Más</a>
+            <a href="/CapacitationPage">Ver Más</a>
           </div>
           <div>
             <h4>Coaching</h4>
@@ -35,7 +35,7 @@ export const ServiceList = () => {
               Sabemas de los diferentes servicios de reclutamiento y seleccion
               de personal sin olvidar la atraccion de talentos
             </p>
-            <a href="/ReclutamientoPage">Ver Más</a>
+            <a href="/ReclutPage">Ver Más</a>
           </div>
           <div>
             <h4>Asesoría Laboral</h4>
@@ -43,7 +43,7 @@ export const ServiceList = () => {
               Preparase para su nuevo cargo con asesorías personales sobre la
               elaboración de CV, simulador de entrevistas y muchos mas recursos
             </p>
-            <a href="/AsesoriaPage">Ver Más</a>
+            <a href="/AsesoryPage">Ver Más</a>
           </div>
         </div>
       </div>
