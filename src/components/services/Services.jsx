@@ -13,11 +13,11 @@ export const Services = () => {
           servicios personalisados de cada categorias.
         </p>
       </div>
-      <a href="/ConsultorPage">
-        <div className="d-flex container animate__animated animate__backInLeft">
+      <a href="/TherapyPage">
+        <div className="d-flex container text-dark animate__animated animate__backInLeft">
           <div>
-          <h3>CONSULTORA</h3>
-          <p>Aqui vendra la descripcion del servicio</p>
+          <h3>TERAPIA</h3>
+          <p>Que sean individual, familiar o de pareja, tenemos una gran variedad de terapias disponibles, consulta aqui los diferentes servicios que ofrecemos </p>
           </div>
           <img src="../../assets/image/manosjuntas.jpg" alt="consultora" className="w-25"/>
         </div>
@@ -40,20 +40,12 @@ export const Services = () => {
           <img src="../../assets/image/desarrolloOrg.jpg" alt="capacitacion" className="w-25"/>
         </div>
       </a>
-      <a href="/ReclutPage container">
+  
+      <a href="/ProgramPage">
         <div className="d-flex container animate__animated animate__backInRight">
-          <img src="../../assets/image/reclut.jpg" alt="reclutamiento" className="w-25"/>
           <div>
-          <h3>RECLUTAMIENTO y SELECCÍON</h3>
-          <p>Aqui vendra la descripcion del servicio</p>
-          </div>
-        </div>
-      </a>
-      <a href="/AsesoryPage">
-        <div className="d-flex container animate__animated animate__backInLeft">
-          <div>
-          <h3>ASESORÍA LABORAL</h3>
-          <p>Aqui vendra la descripcion del servicio</p>
+          <h3>Programas</h3>
+          <p>Las terapias mas efectivas necesitan de mas tiempo, consulta los diferentes programas de 8 sesiones de therapia que podrias necesitar</p>
           </div>
          <img src="" alt="" />
         </div>

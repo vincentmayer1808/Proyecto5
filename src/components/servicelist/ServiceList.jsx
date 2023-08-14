@@ -5,12 +5,12 @@ export const ServiceList = () => {
         <h3 className="text-center">Nuestros Servicios</h3>
         <div className="d-flex justify-content-evenly">
           <div>
-            <h4>Consultora</h4>
+            <h4>Therapia</h4>
             <p>
-              Consultora psicolaboral y organizacional, revise los diferentes
-              servicios de consultora que ofrecemos
+              Necesitas therapia? que sea individual, de pareja o infantil,
+              revise la variedades de therapia que ofrecemos
             </p>
-            <a href="/ConsultorPage">Ver Más</a>
+            <a href="/TherapyPage">Ver Más</a>
           </div>
           <div>
             <h4>Capacitación</h4>
@@ -24,26 +24,16 @@ export const ServiceList = () => {
             <h4>Coaching</h4>
             <p>
               Desarolla sus habilidades y talentos con las varias sesiones de
-              coaching, desde los tipos de liderazgos hasta el desarrollo
-              personal
+              coaching, desde el coaching de vida hasta el coaching familiar.
             </p>
             <a href="/CoachingPage">Ver Más</a>
           </div>
           <div>
-            <h4>Reclutamiento y Selección</h4>
+            <h4>Programas</h4>
             <p>
-              Sabemas de los diferentes servicios de reclutamiento y seleccion
-              de personal sin olvidar la atraccion de talentos
+              Revise los diferentes programas de 8 semanas que ofrecemos
             </p>
-            <a href="/ReclutPage">Ver Más</a>
-          </div>
-          <div>
-            <h4>Asesoría Laboral</h4>
-            <p>
-              Preparase para su nuevo cargo con asesorías personales sobre la
-              elaboración de CV, simulador de entrevistas y muchos mas recursos
-            </p>
-            <a href="/AsesoryPage">Ver Más</a>
+            <a href="/ProgramPage">Ver Más</a>
           </div>
         </div>
       </div>

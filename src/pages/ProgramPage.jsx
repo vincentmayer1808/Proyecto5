@@ -1,11 +1,11 @@
-import { Asesory } from "../components/asesory/Asesory"
+import {  Program } from "../components/program/Program"
 import { ServiceList } from "../components/servicelist/ServiceList"
 
 
-export const AsesoryPage = () => {
+export const ProgramPage = () => {
   return (
     <>
-    <Asesory/>
+    <Program/>
     <ServiceList/>
     </>
   )

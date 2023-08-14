@@ -1,5 +1,3 @@
-
-
 // deberian ser Link o Navlink?
 
 export const Footer = () => {
@@ -11,14 +9,15 @@ export const Footer = () => {
             <h3>Nosotros</h3>
             <p>
               Somos una consultora que ofrece diversos servicios psicologicos,
-              desde informes psicolaborales hasta capacitaciones profesionales y
-              organizacionales
+              desde therapia individual o familiar, hasta coaching de vida y
+              laboral. Que sea una sesion individual o un programa, nuestros
+              profesionales sabran ayudarle
             </p>
           </div>
           <div className="w-50">
             <h3>Servicios</h3>
             <p>
-              <a href="/ConsultorPage">Consultora</a>
+              <a href="/TherapyPage">Therapia</a>
             </p>
             <p>
               <a href="/CapacitationPage">Capacitación</a>
@@ -27,15 +26,12 @@ export const Footer = () => {
               <a href="/CoachingPage">Coaching</a>
             </p>
             <p>
-              <a href="/ReclutPage">Reclutamiento</a>
-            </p>
-            <p>
-              <a href="/AsesoryPage">Asesoría Laboral</a>
+              <a href="/ProgramPage">Programas</a>
             </p>
           </div>
         </div>
         <div className="d-flex align-items-center">
-          <div >
+          <div>
             <h3>Contacto</h3>
             <p>
               Nuestro Telefono : <span>123-456-7890</span>

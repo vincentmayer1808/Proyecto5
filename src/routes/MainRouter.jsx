@@ -4,11 +4,12 @@ import { HomePage } from '../pages/HomePage'
 import { ServicesPage } from '../pages/ServicesPage'
 import { ContactPage } from '../pages/ContactPage'
 import { ReservationPage } from '../pages/ReservationPage'
-import { ConsultorPage } from '../pages/ConsultorPage'
+import { RegisterPage } from '../pages/RegisterPage'
+
+import { TherapyPage } from '../pages/TherapyPage'
 import { CoachingPage } from '../pages/CoachingPage'
 import { CapacitationPage } from '../pages/CapacitationPage'
-import { ReclutPage } from '../pages/ReclutPage'
-import { AsesoryPage } from '../pages/AsesoryPage'
+import { ProgramPage } from '../pages/ProgramPage'
 
 export const MainRouter = () => {
   return (
@@ -18,12 +19,13 @@ export const MainRouter = () => {
     <Route path="/ServicesPage" element={<ServicesPage />} />
     <Route path="/ContactPage" element={<ContactPage />} />
     <Route path="/ReservationPage" element={<ReservationPage />} />
+    <Route path="/RegisterPage" element={<RegisterPage />} />
+  
 
-   <Route path="/ConsultorPage" element={<ConsultorPage />} />
+   <Route path="/TherapyPage" element={<TherapyPage />} />
     <Route path="/CoachingPage" element={<CoachingPage />} />
     <Route path="/CapacitationPage" element={<CapacitationPage />} />
-    <Route path="/ReclutPage" element={<ReclutPage />} />
-    <Route path="/AsesoryPage" element={<AsesoryPage />} />
+    <Route path="/ProgramPage" element={<ProgramPage />} />
     </Routes>
     </>
   )

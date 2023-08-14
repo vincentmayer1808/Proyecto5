@@ -1,7 +1,8 @@
-
 import { NavLink } from "react-router-dom";
+import { Login } from "../login/login";
 
 export const NavBar = () => {
+
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark px-3">
       <div className="navbar-collapse">
@@ -11,7 +12,7 @@ export const NavBar = () => {
           </NavLink>
         </div>
         <div className="navbar-nav">
-          <NavLink className="nav-item nav-link" to="/servicesPage">
+          <NavLink className="nav-item nav-link" to="/ServicesPage">
             Nuestros Servicios
           </NavLink>
         </div>
@@ -21,11 +22,19 @@ export const NavBar = () => {
           </NavLink>
         </div>
         <div className="navbar-nav">
-        <NavLink className="nav-item nav-link" to="/ContactPage">
+          <NavLink className="nav-item nav-link" to="/ContactPage">
             Contacto
           </NavLink>
         </div>
+        <div className="navbar-nav">
+          <NavLink className="nav-item nav-link" to="/RegisterPage">
+            Registrarse
+          </NavLink>
+        </div>
       </div>
+     <div>
+      <Login/>
+     </div>
     </nav>
   );
 };
