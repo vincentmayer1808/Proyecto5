@@ -1,10 +1,9 @@
-
-import { Services } from '../components/services/services'
+import { Allservices } from "../components/services/allservices/Allservices";
 
 export const ServicesPage = () => {
   return (
     <>
-   <Services/>
+      <Allservices />
     </>
-  )
-}
+  );
+};

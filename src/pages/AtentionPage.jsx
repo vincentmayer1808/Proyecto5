@@ -1,11 +1,11 @@
-import {  Program } from "../components/services/program/Program"
+import { Atention } from "../components/services/atencion/Atention"
 import { ServiceList } from "../components/services/servicelist/ServiceList"
 
 
-export const ProgramPage = () => {
+export const AtentionPage = () => {
   return (
     <>
-    <Program/>
+    <Atention/>
     <ServiceList/>
     </>
   )

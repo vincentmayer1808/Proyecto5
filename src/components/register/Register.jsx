@@ -3,10 +3,11 @@ import { UserContext } from "../../context/user/userContext";
 import { types } from "../../context/user/userReducer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import jwt from "jwt-decode";
 
 export const Register = () => {
   const [, dispatch] = useContext(UserContext);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const initForm = {
     username: "",
     email: "",
@@ -25,28 +26,32 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-   await addToDB(formState);
+    await addToDB(formState);
+    setFormState(initForm);
   };
 
-  const addToDB = async() => {
-    console.log(formState);
+  const addToDB = async () => {
+    
     try {
-      const { data } = await axios.post("https://diversos-consultora.onrender.com/users", formState, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const { data } = await axios.post(
+        "https://diversos-consultora.onrender.com/users",
+        formState,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const decodedToken = jwt(data.token);
+      window.alert("usuario loggeado");
+      navigate("/");
       dispatch({
         type: types.setUserState,
-        payload: data,
+        payload: decodedToken,
       });
-      setFormState(initForm);
-      window.alert('usuario loggeado')
-      navigate('/HomePage')
     } catch (err) {
-        console.log(err)
-        window.alert('error en loguear usuario')
+      console.log(err);
+      window.alert("error en loguear usuario");
       dispatch({
         type: types.setError,
         payload: err,

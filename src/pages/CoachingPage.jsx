@@ -1,5 +1,5 @@
-import { Coaching } from "../components/coaching/coaching"
-import { ServiceList } from "../components/servicelist/ServiceList"
+import { Coaching } from "../components/services/coaching/coaching"
+import { ServiceList } from "../components/services/servicelist/ServiceList"
 
 export const CoachingPage = () => {
   return (

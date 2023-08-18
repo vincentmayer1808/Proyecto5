@@ -1,23 +1,28 @@
 export const types = {
-    setUserState : '{USER} Set User State'
-}
+  setUserState: "{USER} Set User State",
+};
 
-const userReducer =(state, action={})=>{
-switch(action.type){
+const userReducer = (state, action = {}) => {
+  switch (action.type) {
     case types.setUserState:
-    return {
+      return {
         ...state,
-        user:action.payload,
-    }
+        user: action.payload,
+      };
+    case types.desconectUser:
+      return {
+        ...state,
+        user: null,
+      };
     case types.setError:
-        return{
-            ...state,
-            error: action.payload,
-        }
+      return {
+        ...state,
+        error: action.payload,
+      };
 
     default:
-        return state
-}
-}
+      return state;
+  }
+};
 
-export default userReducer
+export default userReducer;

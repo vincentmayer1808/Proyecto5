@@ -6,10 +6,10 @@ import { ContactPage } from '../pages/ContactPage'
 import { ReservationPage } from '../pages/ReservationPage'
 import { RegisterPage } from '../pages/RegisterPage'
 
-import { TherapyPage } from '../pages/TherapyPage'
 import { CoachingPage } from '../pages/CoachingPage'
-import { CapacitationPage } from '../pages/CapacitationPage'
+import { AtentionPage } from '../pages/AtentionPage'
 import { ProgramPage } from '../pages/ProgramPage'
+import { UserPage } from '../pages/UserPage'
 
 export const MainRouter = () => {
   return (
@@ -20,11 +20,11 @@ export const MainRouter = () => {
     <Route path="/ContactPage" element={<ContactPage />} />
     <Route path="/ReservationPage" element={<ReservationPage />} />
     <Route path="/RegisterPage" element={<RegisterPage />} />
+    <Route path="/UserPage" element={<UserPage />} />
   
 
-   <Route path="/TherapyPage" element={<TherapyPage />} />
+    <Route path="/AtentionPage" element={<AtentionPage />} />
     <Route path="/CoachingPage" element={<CoachingPage />} />
-    <Route path="/CapacitationPage" element={<CapacitationPage />} />
     <Route path="/ProgramPage" element={<ProgramPage />} />
     </Routes>
     </>

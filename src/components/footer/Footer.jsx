@@ -8,19 +8,15 @@ export const Footer = () => {
           <div className=" w-50">
             <h3>Nosotros</h3>
             <p>
-              Somos una consultora que ofrece diversos servicios psicologicos,
-              desde therapia individual o familiar, hasta coaching de vida y
-              laboral. Que sea una sesion individual o un programa, nuestros
-              profesionales sabran ayudarle
+              Somos psicologos calificados que ofrecen variedades de servicios
+              de bien estar psicologico, desde la terapia hasta el coaching de
+              vida, que sea sesiones individuales o programas grupales.
             </p>
           </div>
           <div className="w-50">
             <h3>Servicios</h3>
             <p>
-              <a href="/TherapyPage">Therapia</a>
-            </p>
-            <p>
-              <a href="/CapacitationPage">Capacitación</a>
+              <a href="/AtentionPage">Atencion y Terapia</a>
             </p>
             <p>
               <a href="/CoachingPage">Coaching</a>

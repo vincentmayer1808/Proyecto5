@@ -5,29 +5,23 @@ export const ServiceList = () => {
         <h3 className="text-center">Nuestros Servicios</h3>
         <div className="d-flex justify-content-evenly">
           <div>
-            <h4>Therapia</h4>
+            <h4>Atencion y Therapia</h4>
             <p>
               Necesitas therapia? que sea individual, de pareja o infantil,
               revise la variedades de therapia que ofrecemos
             </p>
-            <a href="/TherapyPage">Ver Más</a>
+            <a href="/AtentionPage">Ver Más</a>
           </div>
+      
           <div>
-            <h4>Capacitación</h4>
+            <h4>Coaching de vida</h4>
             <p>
-              Capacita laboralmente al personal de su organizacion con tecnicas
-              basadas en la communicacion y el buen trato laboral
-            </p>
-            <a href="/CapacitationPage">Ver Más</a>
-          </div>
-          <div>
-            <h4>Coaching</h4>
-            <p>
-              Desarolla sus habilidades y talentos con las varias sesiones de
+              Desarrolla sus habilidades y talentos con las varias sesiones de
               coaching, desde el coaching de vida hasta el coaching familiar.
             </p>
             <a href="/CoachingPage">Ver Más</a>
           </div>
+
           <div>
             <h4>Programas</h4>
             <p>
