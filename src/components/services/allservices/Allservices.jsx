@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export const Allservices = () => {
@@ -15,7 +16,7 @@ export const Allservices = () => {
       </div>
 
    <div className="text-dark">
-      <a href="/AtentionPage">
+      <Link to="/AtentionPage">
         <div className="d-flex container animate__animated animate__backInLeft">
           <div>
           <h3>ATENCION Y TERAPIA PSICOLOGICA</h3>
@@ -23,9 +24,9 @@ export const Allservices = () => {
           </div>
           <img src="../../../assets/image/manosjuntas.jpg" alt="imagen a venir" className="w-25"/>
         </div>
-      </a>
+      </Link>
    
-      <a href="/CoachingPage">
+      <Link to="/CoachingPage">
         <div className="d-flex container animate__animated animate__backInRight">
           <img src="../../../assets/image/coaching_employees.jpg" alt="coaching" className="w-25"/>
           <div>
@@ -33,9 +34,9 @@ export const Allservices = () => {
           <p>Aqui vendra la descripcion del servicio</p>
           </div>
         </div>
-      </a>
+      </Link>
       
-      <a href="/ProgramPage">
+      <Link to="/ProgramPage">
         <div className="d-flex container animate__animated animate__backInLeft">
           <div>
           <h3>PROGRAMAS</h3>
@@ -43,7 +44,7 @@ export const Allservices = () => {
           </div>
          <img src="" alt="" />
         </div>
-      </a>
+      </Link>
    </div>
     </>
   );

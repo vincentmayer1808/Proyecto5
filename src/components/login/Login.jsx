@@ -25,13 +25,11 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    addToDB(formState);
-    setFormState(initForm);
-
+    connectToDB(formState);
     setIsLoading(false);
   };
 
-  const addToDB = async () => {
+  const connectToDB = async () => {
     try {
       const { data } = await axios.post(
         "https://diversos-consultora.onrender.com/users/login",
@@ -42,8 +40,10 @@ export const Login = () => {
           },
         }
       );
+
       const decodedToken = jwt(data.token);
       window.alert("usuario loggeado");
+      setFormState(initForm);
       dispatch({
         type: types.setUserState,
         payload: decodedToken,
@@ -61,7 +61,6 @@ export const Login = () => {
     try {
       dispatch({
         type: types.desconectUser,
-        payload: null,
       });
     } catch (err) {
       dispatch({
@@ -76,9 +75,9 @@ export const Login = () => {
       <div>
         {state?.user ? (
           <div>
-            <h3>Bienvenido {state.user.username}</h3>
+            <h3 className="text-light">Bienvenid@ {state.user.username}</h3>
             <button
-              className="btn btn-primary d-flex shadow"
+              className="btn btn-primary d-flex "
               type="reset"
               id="desconectButton"
               onClick={logout}
@@ -89,7 +88,10 @@ export const Login = () => {
           </div>
         ) : (
           <form action="submit">
-            <h3> Bienvenido, registrase o ingresa a su cuenta</h3>
+            <h3 className="text-light">
+              {" "}
+              Bienvenido, registrase o ingresa a su cuenta
+            </h3>
             <div className="form-group ">
               <input
                 className="form-control shadow"

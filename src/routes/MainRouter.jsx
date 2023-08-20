@@ -5,11 +5,11 @@ import { ServicesPage } from '../pages/ServicesPage'
 import { ContactPage } from '../pages/ContactPage'
 import { ReservationPage } from '../pages/ReservationPage'
 import { RegisterPage } from '../pages/RegisterPage'
+import { UserPage } from '../pages/UserPage'
 
 import { CoachingPage } from '../pages/CoachingPage'
 import { AtentionPage } from '../pages/AtentionPage'
 import { ProgramPage } from '../pages/ProgramPage'
-import { UserPage } from '../pages/UserPage'
 
 export const MainRouter = () => {
   return (

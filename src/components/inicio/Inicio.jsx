@@ -1,18 +1,10 @@
-import { useContext } from "react";
-import { UserContext } from "../../context/user/userContext";
 
 export const Inicio = () => {
-  const [user] = useContext(UserContext);
+
   return (
     <>
       <div>
-        {user ? (
-          <div>{JSON.stringify(user, null, 2)}</div>
-        ) : (
-          <div>
-            <p>usuario no disponible</p>
-          </div>
-        )}
+
         <h1>Inicio</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eligendi

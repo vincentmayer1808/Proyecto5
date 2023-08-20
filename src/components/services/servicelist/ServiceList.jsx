@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const ServiceList = () => {
   return (
     <>
@@ -10,7 +12,7 @@ export const ServiceList = () => {
               Necesitas therapia? que sea individual, de pareja o infantil,
               revise la variedades de therapia que ofrecemos
             </p>
-            <a href="/AtentionPage">Ver Más</a>
+            <Link to="/AtentionPage">Ver Más</Link>
           </div>
       
           <div>
@@ -19,7 +21,7 @@ export const ServiceList = () => {
               Desarrolla sus habilidades y talentos con las varias sesiones de
               coaching, desde el coaching de vida hasta el coaching familiar.
             </p>
-            <a href="/CoachingPage">Ver Más</a>
+            <Link to="/CoachingPage">Ver Más</Link>
           </div>
 
           <div>
@@ -27,7 +29,7 @@ export const ServiceList = () => {
             <p>
               Revise los diferentes programas de 8 semanas que ofrecemos
             </p>
-            <a href="/ProgramPage">Ver Más</a>
+            <Link to="/ProgramPage">Ver Más</Link>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import jwt from "jwt-decode";
 
 export const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
   const initForm = {
@@ -26,12 +27,19 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addToDB(formState);
-    setFormState(initForm);
+    setIsLoading(true)
+    const { username, password, email } = formState;
+    if (username === "" || email === "" || password === "") {
+      window.alert("Debe llenar los campos de nombre, correo y clave");
+    } else {
+      console.log(isLoading);
+      await addToDB(formState);
+      setFormState(initForm);
+    }
+    setIsLoading(false)
   };
 
   const addToDB = async () => {
-    
     try {
       const { data } = await axios.post(
         "https://diversos-consultora.onrender.com/users",
@@ -129,6 +137,7 @@ export const Register = () => {
               type="submit"
               id="contact"
               onClick={handleSubmit}
+              disabled={isLoading}
             >
               Registrase
             </button>
