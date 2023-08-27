@@ -1,6 +1,7 @@
 export const types = {
     setServicesState: "{SERVICES} set services state",
     setServiceState: "{SERVICE} set service state",
+    setError:"[SERVICE] error"
   };
   
   const servicesReducer = (state, action = {}) => {

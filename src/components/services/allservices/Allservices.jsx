@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ServicesContext } from "../../../context/services/servicesContext";
 import { Link } from "react-router-dom";
 import { types } from "../../../context/services/servicesReducer";
@@ -9,16 +9,11 @@ import axios from "axios";
 
 export const Allservices = () => {
   const [state, dispatch] = useContext(ServicesContext);
+  const[therapie, setTherapie] = useState([])
+  const[coaching, setCoaching] = useState([])
+  const[program, setProgram] = useState([])
+console.log(state)
 
-  const therapie = state?.services.filter(
-    (service) => service.categorie === "terapia"
-  );
-  const coaching = state?.services.filter(
-    (service) => service.categorie === "coaching"
-  );
-  const program = state?.services.filter(
-    (service) => service.categorie === "programa"
-  );
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -34,6 +29,7 @@ export const Allservices = () => {
           type: types.setServicesState,
           payload: data.detail,
         });
+      
       } catch (err) {
         console.log(err);
         dispatch({
@@ -44,9 +40,21 @@ export const Allservices = () => {
     };
 
     fetchServices();
-    // FetchServices();
-  }, []);
 
+    // FetchServices(url).then(dispatch);
+  }, []);
+useEffect(()=>{
+  setTherapie(  state?.services?.filter(
+    (service) => service.categorie === "terapia"
+  ))
+  
+  setCoaching( state?.services?.filter(
+    (service) => service.categorie === "coaching"
+  ))
+  setProgram(state?.services?.filter(
+    (service) => service.categorie === "programa"
+  ))
+},[state])
   return (
     <>
       <div className="d-flex container">

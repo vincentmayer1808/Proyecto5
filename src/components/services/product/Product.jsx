@@ -1,15 +1,13 @@
 
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { types } from "../../../context/services/servicesReducer";
-import { ServicesContext } from "../../../context/services/servicesContext";
 
 export const Product = () => {
-  const [state, dispatch] = useContext(ServicesContext);
+ 
   const param = useParams();
   const { type } = param;
-
+const[product, setProduct]=useState(null)
   // const storedItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   // const [cart, setCart] = useState(storedItems);
@@ -22,7 +20,7 @@ export const Product = () => {
     const fetchService = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5174/services/${type}`,
+          `https://diversos-consultora.onrender.com/services/${type}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -30,21 +28,16 @@ export const Product = () => {
           }
         );
 
-        dispatch({
-          type: types.setServiceState,
-          payload: data.detail,
-        });
+       
+        setProduct(data.detail)
       } catch (err) {
         console.log(err);
-        dispatch({
-          type: types.setError,
-          payload: err,
-        });
+      
       }
     };
 
     fetchService();
-    console.log(state);
+    
     // FetchServices();
   }, []);
 
@@ -55,13 +48,12 @@ export const Product = () => {
   return (
     <>
       <section>
-        <h2>{state?.service.serviceName}</h2>
-        <p>{state?.service.description}</p>
-        <p>{state?.service.price}</p>
-        <p>{state?.service.assisting}</p>
-        <p>{state?.service.duration}</p>
-        <img src={state?.service.image} alt="" />
-        {/* <button onClick={addProduct(state?.service)}>agregar al carro</button> */}
+        <h2>{product?.serviceName}</h2>
+        <p>{product?.description}</p>
+        <p>{product?.price}</p>
+        <p>{product?.assisting}</p>
+        <p>{product?.duration}</p>
+        {/* <button onClick={()=>{addProduct(state?.service)}>agregar al carro</button> */}
       </section>
     </>
   );
