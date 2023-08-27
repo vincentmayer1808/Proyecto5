@@ -3,11 +3,12 @@ import jwt from "jwt-decode";
 import { types } from "../../context/user/userReducer";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/user/userContext";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [state, dispatch] = useContext(UserContext);
-
+const navigate =useNavigate()
   const initForm = {
     email: "",
     password: "",
@@ -25,7 +26,7 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    connectToDB(formState);
+    await connectToDB(formState);
     setIsLoading(false);
   };
 
@@ -40,10 +41,11 @@ export const Login = () => {
           },
         }
       );
-
+      const token = data.token
+      localStorage.setItem("token", token)
       const decodedToken = jwt(data.token);
       window.alert("usuario loggeado");
-      setFormState(initForm);
+      navigate('/UserPage')
       dispatch({
         type: types.setUserState,
         payload: decodedToken,
@@ -59,6 +61,8 @@ export const Login = () => {
   };
   const logout = () => {
     try {
+      navigate('/')
+      window.alert("Usuario desconectado")
       dispatch({
         type: types.desconectUser,
       });
@@ -87,9 +91,8 @@ export const Login = () => {
             </button>
           </div>
         ) : (
-          <form action="submit">
+          <form onSubmit={handleSubmit}>
             <h3 className="text-light">
-              {" "}
               Bienvenido, registrase o ingresa a su cuenta
             </h3>
             <div className="form-group ">
@@ -116,7 +119,7 @@ export const Login = () => {
               className="btn btn-primary d-grid col-6 mx-auto mt-2 shadow"
               type="submit"
               id="loginButton"
-              onClick={handleSubmit}
+             
               disabled={isLoading}
             >
               Conectarse

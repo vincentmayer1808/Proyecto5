@@ -1,6 +1,6 @@
 export const types = {
   setUserState: "{USER} Set User State",
-  desconectUser:"{LOGOUT}"
+  desconectUser: "{LOGOUT}",
 };
 
 const userReducer = (state, action = {}) => {
@@ -13,7 +13,7 @@ const userReducer = (state, action = {}) => {
     case types.desconectUser:
       return {
         ...state,
-        user: action.payload,
+        user: null,
       };
     case types.setError:
       return {

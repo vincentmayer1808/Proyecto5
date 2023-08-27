@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 export const CartProduct = ({producto, setCart}) => {
-console.log(producto)
+
   const [contador, setContador] = useState(producto.quantity)
   
   const aumentar = () => {

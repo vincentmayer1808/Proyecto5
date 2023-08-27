@@ -28,11 +28,12 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true)
+    
     const { username, password, email } = formState;
     if (username === "" || email === "" || password === "") {
       window.alert("Debe llenar los campos de nombre, correo y clave");
     } else {
-      console.log(isLoading);
+    
       await addToDB(formState);
       setFormState(initForm);
     }
@@ -50,7 +51,9 @@ export const Register = () => {
           },
         }
       );
-      const decodedToken = jwt(data.token);
+      const token = data.token
+      localStorage.setItem("token", token)
+      const decodedToken = jwt(token);
       window.alert("usuario loggeado");
       navigate("/");
       dispatch({

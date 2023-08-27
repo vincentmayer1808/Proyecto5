@@ -1,5 +1,6 @@
 export const types = {
     setServicesState: "{SERVICES} set services state",
+    setServiceState: "{SERVICE} set service state",
   };
   
   const servicesReducer = (state, action = {}) => {
@@ -8,6 +9,11 @@ export const types = {
         return {
           ...state,
           services: action.payload,
+        };
+      case types.setServiceState:
+        return {
+          ...state,
+          service: action.payload,
         };
     
       case types.setError:
