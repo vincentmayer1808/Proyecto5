@@ -6,12 +6,16 @@ export const Cart = () => {
   // const initCart = [];
   const [cart, setCart] = useState(storedItems);
   const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     setTotalPrice(0);
     cart?.forEach((product) => {
+      console.log(product)
       const priceToSum = product.price * product.quantity;
       setTotalPrice((price) => price + priceToSum);
     });
+    localStorage.setItem("cart", JSON.stringify(cart));
+
   }, [cart]);
 
   return (
@@ -19,7 +23,13 @@ export const Cart = () => {
       <h2>Mi carrito de compras</h2>
       <ul>
         {cart?.map((product) => (
-          <CartProduct key={product.id} producto={product} setCart={setCart} />
+          <li key={product._id}>
+          <CartProduct  producto={product} setCart={setCart}/>
+          <button onClick={()=>
+           { if(window.confirm("Estas seguro de eliminar este servicio del carrito?"))(
+            setCart(cart.filter((service)=>service._id!==product._id)))
+             }}>eliminar</button> 
+          </li>
         ))}
       </ul>
       <h3>Precio total: {totalPrice}</h3>

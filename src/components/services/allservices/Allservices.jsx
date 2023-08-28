@@ -12,7 +12,7 @@ export const Allservices = () => {
   const[therapie, setTherapie] = useState([])
   const[coaching, setCoaching] = useState([])
   const[program, setProgram] = useState([])
-console.log(state)
+
 
   useEffect(() => {
     const fetchServices = async () => {

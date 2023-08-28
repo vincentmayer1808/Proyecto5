@@ -28,12 +28,10 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true)
-    
     const { username, password, email } = formState;
     if (username === "" || email === "" || password === "") {
       window.alert("Debe llenar los campos de nombre, correo y clave");
     } else {
-    
       await addToDB(formState);
       setFormState(initForm);
     }

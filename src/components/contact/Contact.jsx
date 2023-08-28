@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 export const Contact = () => {
@@ -9,7 +10,7 @@ export const Contact = () => {
   };
 
   const [formState, setFormState] = useState(initForm);
-
+const  [isLoading,setIsLoading]= useState(false)
   const onChangeForm = ({ target }) => {
     setFormState({
       ...formState,
@@ -17,14 +18,36 @@ export const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addToDB(formState);
+    setIsLoading(true)
+    const { username, consult, email } = formState;
+    if (username === "" || email === "" || consult === "") {
+      window.alert("Debe llenar los campos de nombre, correo y comsulta");
+    } else {
+    await addToDB(formState);
     setFormState(initForm);
+    }
+    setIsLoading(false)
   };
 
-  const addToDB = () => {
-    console.log(formState);
+  const addToDB = async () => {
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5174/contact",
+        formState,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      window.alert("Consulta Enviada");
+    console.log(data)
+    } catch (err) {
+      console.log(err);
+      window.alert("error en enviar la consulta");
+    }
   };
 
   return (
@@ -93,9 +116,10 @@ export const Contact = () => {
             </div>
             <button
               className="btn btn-primary d-grid col-6 mx-auto mt-2 shadow"
-              type="submit"
               id="contact"
+              type="submit"
               onClick={handleSubmit}
+              disabled={isLoading}
             >
               Envianos tu consulta
             </button>

@@ -1,17 +1,15 @@
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export const Product = () => {
- 
   const param = useParams();
   const { type } = param;
-const[product, setProduct]=useState(null)
-  // const storedItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const [product, setProduct] = useState(null);
+  const storedItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // const [cart, setCart] = useState(storedItems);
-
+  const [cart, setCart] = useState(storedItems);
+ 
   // const addProduct = (service) => {
   //   setCart([...cart, service]);
   // };
@@ -27,24 +25,22 @@ const[product, setProduct]=useState(null)
             },
           }
         );
-
-       
-        setProduct(data.detail)
+        setProduct(data.detail);
       } catch (err) {
         console.log(err);
-      
       }
     };
 
     fetchService();
-    
+
     // FetchServices();
   }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [cart]);
-
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+   
+  }, [cart]);
+  
   return (
     <>
       <section>
@@ -53,7 +49,16 @@ const[product, setProduct]=useState(null)
         <p>{product?.price}</p>
         <p>{product?.assisting}</p>
         <p>{product?.duration}</p>
-        {/* <button onClick={()=>{addProduct(state?.service)}>agregar al carro</button> */}
+        {console.log(cart, product)}
+        {cart?.map((service)=>service._id).includes(product?._id)?(
+         <button onClick={() =>setCart(cart.filter((service)=>service._id!==product._id))}>
+         eliminar del carro
+       </button>
+        ):(
+          <button onClick={() =>setCart([...cart, {...product, quantity:1}])}>
+          agregar al carro
+        </button>
+        )}
       </section>
     </>
   );
