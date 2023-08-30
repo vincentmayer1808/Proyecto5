@@ -1,60 +1,47 @@
-import { useContext, useEffect, useState } from "react";
-import { ServicesContext } from "../../../context/services/servicesContext";
+/* eslint-disable react/prop-types */
+// import {  useEffect, useState } from "react";
+// import { ServicesContext } from "../../../context/services/servicesContext";
 import { Link } from "react-router-dom";
-import { types } from "../../../context/services/servicesReducer";
+// import { types } from "../../../context/services/servicesReducer";
 
 import "./serviceCard.css";
-import axios from "axios";
+// import axios from "axios";
 // import { FetchServices } from "../../../helpers/FetchServices";
 
-export const Allservices = () => {
-  const [state, dispatch] = useContext(ServicesContext);
-  const[therapie, setTherapie] = useState([])
-  const[coaching, setCoaching] = useState([])
-  const[program, setProgram] = useState([])
+export const Allservices = ({therapie, coaching, program}) => {
+  // const [state, dispatch] = useContext(ServicesContext);
 
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://diversos-consultora.onrender.com/services",
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        dispatch({
-          type: types.setServicesState,
-          payload: data.detail,
-        });
+  // useEffect(() => {
+  //   const fetchServices = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         "https://diversos-consultora.onrender.com/services",
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       );
+  //       dispatch({
+  //         type: types.setServicesState,
+  //         payload: data.detail,
+  //       });
       
-      } catch (err) {
-        console.log(err);
-        dispatch({
-          type: types.setError,
-          payload: err,
-        });
-      }
-    };
+  //     } catch (err) {
+  //       console.log(err);
+  //       dispatch({
+  //         type: types.setError,
+  //         payload: err,
+  //       });
+  //     }
+  //   };
 
-    fetchServices();
+  //   fetchServices();
 
-    // FetchServices(url).then(dispatch);
-  }, []);
-useEffect(()=>{
-  setTherapie(  state?.services?.filter(
-    (service) => service.categorie === "terapia"
-  ))
-  
-  setCoaching( state?.services?.filter(
-    (service) => service.categorie === "coaching"
-  ))
-  setProgram(state?.services?.filter(
-    (service) => service.categorie === "programa"
-  ))
-},[state])
+  //   // FetchServices(url).then(dispatch);
+  // }, []);
+
   return (
     <>
       <div className="d-flex container">
@@ -74,9 +61,9 @@ useEffect(()=>{
 
       <div className="text-dark">
         <section className="products">
-          <div className="d-flex container animate__animated animate__backInLeft">
+          <div  className="d-flex container animate__animated animate__backInLeft">
             <div>
-              <h3 id="therapie">ATENCION Y TERAPIA PSICOLOGICA</h3>
+              <h3 >ATENCION Y TERAPIA PSICOLOGICA</h3>
               <p>
                 La atencion psicologica es la primera atencion que se le ofrece
                 para dar un psicodiagnostico

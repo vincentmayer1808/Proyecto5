@@ -1,12 +1,9 @@
-
-import { Contact } from '../components/contact/Contact'
-import { ServiceList } from '../components/services/servicelist/ServiceList'
-
+import{Contact} from "../components/contact/Contact"
 export const ContactPage = () => {
   return (
     <>
-    <Contact/>
-    <ServiceList/>
+    
+<Contact/>    
     </>
   )
 }

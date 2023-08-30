@@ -7,12 +7,7 @@ export const Product = () => {
   const { type } = param;
   const [product, setProduct] = useState(null);
   const storedItems = JSON.parse(localStorage.getItem("cart")) || [];
-
   const [cart, setCart] = useState(storedItems);
- 
-  // const addProduct = (service) => {
-  //   setCart([...cart, service]);
-  // };
 
   useEffect(() => {
     const fetchService = async () => {
@@ -30,17 +25,13 @@ export const Product = () => {
         console.log(err);
       }
     };
-
     fetchService();
-
-    // FetchServices();
   }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-   
   }, [cart]);
-  
+
   return (
     <>
       <section>
@@ -49,15 +40,20 @@ export const Product = () => {
         <p>{product?.price}</p>
         <p>{product?.assisting}</p>
         <p>{product?.duration}</p>
-        {console.log(cart, product)}
-        {cart?.map((service)=>service._id).includes(product?._id)?(
-         <button onClick={() =>setCart(cart.filter((service)=>service._id!==product._id))}>
-         eliminar del carro
-       </button>
-        ):(
-          <button onClick={() =>setCart([...cart, {...product, quantity:1}])}>
-          agregar al carro
-        </button>
+        {cart?.map((service) => service._id).includes(product?._id) ? (
+          <button
+            onClick={() =>
+              setCart(cart.filter((service) => service._id !== product._id))
+            }
+          >
+            eliminar del carro
+          </button>
+        ) : (
+          <button
+            onClick={() => setCart([...cart, { ...product, quantity: 1 }])}
+          >
+            agregar al carro
+          </button>
         )}
       </section>
     </>

@@ -1,21 +1,22 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/user/userContext";
 import { types } from "../../context/user/userReducer";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import jwt from "jwt-decode";
 
 export const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [, dispatch] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
+
   const initForm = {
     username: "",
     email: "",
     phone: "",
     password: "",
+    role: "USER_ROLE",
   };
-
   const [formState, setFormState] = useState(initForm);
 
   const onChangeForm = ({ target }) => {
@@ -27,21 +28,23 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
+
     const { username, password, email } = formState;
     if (username === "" || email === "" || password === "") {
       window.alert("Debe llenar los campos de nombre, correo y clave");
     } else {
+      console.log(formState);
       await addToDB(formState);
       setFormState(initForm);
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   const addToDB = async () => {
     try {
       const { data } = await axios.post(
-        "https://diversos-consultora.onrender.com/users",
+        "http://localhost:5174/users",
         formState,
         {
           headers: {
@@ -49,11 +52,12 @@ export const Register = () => {
           },
         }
       );
-      const token = data.token
-      localStorage.setItem("token", token)
+      const token = data.token;
+      localStorage.setItem("token", token);
       const decodedToken = jwt(token);
       window.alert("usuario loggeado");
       navigate("/");
+      console.log(decodedToken);
       dispatch({
         type: types.setUserState,
         payload: decodedToken,
@@ -67,6 +71,10 @@ export const Register = () => {
       });
     }
   };
+
+  if (state?.user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
@@ -95,7 +103,7 @@ export const Register = () => {
             </div>
             <div className="form-group g-3 ">
               <label className="col-form-label mx-2" htmlFor="email">
-                Dirección de correo
+                Correo Electronico
               </label>
               <input
                 className="form-control shadow"

@@ -31,7 +31,7 @@ export const User = () => {
       return;
     }
     try {
-      const { data } = await axios.delete(
+     await axios.delete(
         `https://diversos-consultora.onrender.com/users/${userId}`,
         {
           headers: {
@@ -40,9 +40,7 @@ export const User = () => {
           },
         }
       );
-      console.log(data);
-
-      navigate("/");
+        navigate("/");
       dispatch({
         type: types.desconectUser,
       });
@@ -57,7 +55,7 @@ export const User = () => {
 
   const editUser = async (e) => {
     e.preventDefault();
-    console.log(state);
+    
     const token = localStorage.getItem("token");
     try {
       const userId = state.user._id;
@@ -71,7 +69,7 @@ export const User = () => {
           },
         }
       );
-      console.log(data);
+      
       window.alert("usuario editado");
       dispatch({
         type: types.setUserState,

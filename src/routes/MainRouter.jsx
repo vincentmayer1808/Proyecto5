@@ -1,24 +1,92 @@
-// import React from 'react'
+/* eslint-disable react/prop-types */
 import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../pages/HomePage";
-import { ServicesPage } from "../pages/ServicesPage";
-import { ContactPage } from "../pages/ContactPage";
-import { ReservationPage } from "../pages/ReservationPage";
-import { RegisterPage } from "../pages/RegisterPage";
-import { UserPage } from "../pages/UserPage";
 
-import { ServicePage } from "../pages/ServicePage";
+import {
+  HomePage,
+  ServicePage,
+  RegisterPage,
+  UserPage,
+  ServicesPage,
+  ContactPage,
+  ReservationPage,
+} from "../pages";
+import { useContext, useState } from "react";
+import { ServicesContext } from "../context/services/servicesContext";
 
-export const MainRouter = () => {
+import { useEffect } from "react";
+import axios from "axios";
+import { types } from "../context/services/servicesReducer";
+import { ProtectedRoutes } from "./ProtectedRoutes";
+
+export const MainRouter = ({user}) => {
+  const[state, dispatch]=useContext(ServicesContext)
+  const[therapie, setTherapie] = useState([])
+  const[coaching, setCoaching] = useState([])
+  const[program, setProgram] = useState([])
+
+  const [isAllowed, setIsAllowed] = useState(false);
+  // const [uid, setUid] = useState("");
+  useEffect(() => {
+     console.log(user?.user?.role)
+    if (user?.user?.role === "USER_ROLE") {
+      setIsAllowed(true);
+      // setUid(user.user._id);
+    } else {
+      setIsAllowed(false);
+    }
+  }, [user]);
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://diversos-consultora.onrender.com/services",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        dispatch({
+          type: types.setServicesState,
+          payload: data.detail,
+        });
+      
+      } catch (err) {
+        console.log(err);
+        dispatch({
+          type: types.setError,
+          payload: err,
+        });
+      }
+    };
+
+    fetchServices();
+
+  }, []);
+  useEffect(()=>{
+    setTherapie(  state?.services?.filter(
+      (service) => service.categorie === "terapia"
+    ))
+    
+    setCoaching( state?.services?.filter(
+      (service) => service.categorie === "coaching"
+    ))
+    setProgram(state?.services?.filter(
+      (service) => service.categorie === "programa"
+    ))
+  },[state])
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/ServicesPage" element={<ServicesPage />} />
+        <Route path="/" element={<HomePage   therapie={therapie} coaching={coaching} program={program}/>} />
+        <Route path="/ServicesPage" element={<ServicesPage   therapie={therapie} coaching={coaching} program={program}/>} />
         <Route path="/ContactPage" element={<ContactPage />} />
         <Route path="/ReservationPage" element={<ReservationPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
-        <Route path="/UserPage" element={<UserPage />} />
+        <Route path="/RegisterPage" element={<RegisterPage   therapie={therapie} coaching={coaching} program={program}/>} />
+        <Route element={<ProtectedRoutes isAllowed={isAllowed} />}>
+        <Route path="/UserPage" element={<UserPage user={user}  therapie={therapie} coaching={coaching} program={program}/>} />
+          
+        </Route>
 
         <Route path="/Service/:type" element={<ServicePage />} />
       </Routes>
