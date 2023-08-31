@@ -1,20 +1,12 @@
 /* eslint-disable react/prop-types */
-// import axios from "axios";
-// import jwt from "jwt-decode";
-// import { types } from "../../context/user/userReducer";
-// import { UserContext } from "../../context/user/userContext";
-// import { useNavigate } from "react-router-dom";
 import {  useState } from "react";
 
 export const Login = ({ user, login, logout }) => {
   const [isLoading, setIsLoading] = useState(false);
-//   const [state, dispatch] = useContext(UserContext);
-// const navigate =useNavigate()
   const initForm = {
     email: "",
     password: "",
   };
-
   const [formState, setFormState] = useState(initForm);
 
   const onChangeForm = ({ target }) => {
@@ -31,58 +23,12 @@ export const Login = ({ user, login, logout }) => {
     setIsLoading(false);
   };
 
-  // const connectToDB = async () => {
-  //   try {
-  //     const { data } = await axios.post(
-  //       "https://diversos-consultora.onrender.com/users/login",
-  //       formState,
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     const token = data.token
-  //     localStorage.setItem("token", token)
-  //     const decodedToken = jwt(data.token);
-  //     window.alert("usuario loggeado");
-  //     navigate('/UserPage')
-  //     dispatch({
-  //       type: types.setUserState,
-  //       payload: decodedToken,
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //     window.alert("error en loguear usuario");
-  //     dispatch({
-  //       type: types.setError,
-  //       payload: err,
-  //     });
-  //   }
-  // };
-  // const logout = () => {
-  //   try {
-  //     localStorage.removeItem("token")
-  //     navigate('/')
-  //     window.alert("Usuario desconectado")
-  //     dispatch({
-  //       type: types.desconectUser,
-  //     });
-  //   } catch (err) {
-  //     dispatch({
-  //       type: types.setError,
-  //       payload: err,
-  //     });
-  //   }
-  // };
-// console.log(user)
   return (
     <>
-      <div>
+      <div >
         {user?.user ? (
-        
-          <div>
-          <h3 className="text-light">Bienvenid@ {user?.user.username}</h3>
+          <div className="d-flex flex-column align-items-center justify-content-center">
+          <h2 className="text-light">Bienvenid@ {user?.user.username}</h2>
           <button
             className="btn btn-primary d-flex "
             type="reset"
@@ -94,13 +40,13 @@ export const Login = ({ user, login, logout }) => {
           </button>
         </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-          <h3 className="text-light">
+          <form onSubmit={handleSubmit} className="mx-5">
+          <h2 className="text-light text-center">
             Bienvenido, registrase o ingresa a su cuenta
-          </h3>
-          <div className="form-group ">
+          </h2>
+          <div className="form-group px-5 mb-2">
             <input
-              className="form-control shadow"
+              className="form-control shadow "
               name="email"
               placeholder="Escribe su correo aquí"
               type="email"
@@ -108,7 +54,7 @@ export const Login = ({ user, login, logout }) => {
               onChange={onChangeForm}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group px-5">
             <input
               className="form-control shadow"
               name="password"
@@ -122,7 +68,6 @@ export const Login = ({ user, login, logout }) => {
             className="btn btn-primary d-grid col-6 mx-auto mt-2 shadow"
             type="submit"
             id="loginButton"
-           
             disabled={isLoading}
           >
             Conectarse

@@ -1,46 +1,10 @@
 /* eslint-disable react/prop-types */
-// import {  useEffect, useState } from "react";
-// import { ServicesContext } from "../../../context/services/servicesContext";
+
 import { Link } from "react-router-dom";
-// import { types } from "../../../context/services/servicesReducer";
 
 import "./serviceCard.css";
-// import axios from "axios";
-// import { FetchServices } from "../../../helpers/FetchServices";
 
 export const Allservices = ({therapie, coaching, program}) => {
-  // const [state, dispatch] = useContext(ServicesContext);
-
-
-  // useEffect(() => {
-  //   const fetchServices = async () => {
-  //     try {
-  //       const { data } = await axios.get(
-  //         "https://diversos-consultora.onrender.com/services",
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       dispatch({
-  //         type: types.setServicesState,
-  //         payload: data.detail,
-  //       });
-      
-  //     } catch (err) {
-  //       console.log(err);
-  //       dispatch({
-  //         type: types.setError,
-  //         payload: err,
-  //       });
-  //     }
-  //   };
-
-  //   fetchServices();
-
-  //   // FetchServices(url).then(dispatch);
-  // }, []);
 
   return (
     <>

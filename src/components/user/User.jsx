@@ -7,7 +7,7 @@ import { types } from "../../context/user/userReducer";
 export const User = () => {
   const [state, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
-
+const [isDisabled, setIsDisabled] = useState(false)
   const initForm = {
     username: state.user.username,
     email: state.user.email,
@@ -25,13 +25,14 @@ export const User = () => {
 
   const deleteUser = async (e) => {
     e.preventDefault();
+    setIsDisabled(true)
     const userId = state.user._id;
     const token = localStorage.getItem("token");
-    if (!window.confirm("Are you sure you want to delete this reservation?")) {
+    if (!window.confirm("Estas seguro de querer eliminar tu perfil?")) {
       return;
     }
     try {
-     await axios.delete(
+      await axios.delete(
         `https://diversos-consultora.onrender.com/users/${userId}`,
         {
           headers: {
@@ -40,7 +41,8 @@ export const User = () => {
           },
         }
       );
-        navigate("/");
+      navigate("/");
+      setIsDisabled(false)
       dispatch({
         type: types.desconectUser,
       });
@@ -55,7 +57,7 @@ export const User = () => {
 
   const editUser = async (e) => {
     e.preventDefault();
-    
+    setIsDisabled(true)
     const token = localStorage.getItem("token");
     try {
       const userId = state.user._id;
@@ -69,8 +71,8 @@ export const User = () => {
           },
         }
       );
-      
       window.alert("usuario editado");
+      setIsDisabled(false)
       dispatch({
         type: types.setUserState,
         payload: data.detail,
@@ -110,10 +112,10 @@ export const User = () => {
             onChange={onChangeForm}
           />
         </div>
-        <button type="submit" onClick={editUser}>
+        <button type="submit" disabled={isDisabled} onClick={editUser}>
           Editar perfil
         </button>
-        <button type="submit" onClick={deleteUser}>
+        <button type="submit" disabled={isDisabled} onClick={deleteUser}>
           Eliminar perfil
         </button>
       </form>

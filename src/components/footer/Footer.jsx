@@ -3,38 +3,22 @@
 export const Footer = () => {
   return (
     <>
-      <div className="bg-dark text-light d-flex justify-content-center">
-        <div className="d-flex align-items-center w-50">
-          <div className=" w-50">
-            <h3>Nosotros</h3>
-            <p>
-              Somos psicologos calificados que ofrecen variedades de servicios
-              de bien estar psicologico, desde la terapia hasta el coaching de
-              vida, que sea sesiones individuales o programas grupales.
-            </p>
-          </div>
-          <div className="w-50">
-            <h3>Servicios</h3>
-            <p>
-              <a href="/AtentionPage">Atencion y Terapia</a>
-            </p>
-            <p>
-              <a href="/CoachingPage">Coaching</a>
-            </p>
-            <p>
-              <a href="/ProgramPage">Programas</a>
-            </p>
-          </div>
+      <div className="bg-dark text-light d-sm-flex p-2">
+        <div className="d-flex flex-column align-items-center justify-content-center text-center p-2 ">
+          <h3>Nosotros</h3>
+          <p >
+            Somos psicologos calificados que ofrecen variedades de servicios de
+            bien estar psicologico, desde la terapia hasta el coaching de vida,
+            que sea sesiones individuales o programas grupales.
+          </p>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="text-center d-flex align-items-center justify-content-center mx-5">
           <div>
             <h3>Contacto</h3>
             <p>
-              Nuestro Telefono : <span>123-456-7890</span>
+              Telefono : <span>123-456-7890</span>
             </p>
-            <p>
-              Nuestro Correo : <span>diversosconsultora@gmail.com</span>
-            </p>
+            <p>psicologialosrios@gmail.com</p>
             <div className="icon d-flex justify-content-evenly">
               <a href="https://facebook.com">
                 <i className="bi bi-facebook" />

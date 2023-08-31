@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
-
 import { NavBar } from "./components/navbar/NavBar";
 import { MainRouter } from "./routes/MainRouter";
 import { UserContext } from "./context/user/userContext";
-import jwt from "jwt-decode";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { types } from "./context/user/userReducer";
+import jwt from "jwt-decode";
+import axios from "axios";
 
 function App() {
   const [state, dispatch] = useContext(UserContext);

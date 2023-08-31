@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export const Product = () => {
+export const Product = ({ user }) => {
   const param = useParams();
   const { type } = param;
   const [product, setProduct] = useState(null);
@@ -50,7 +51,13 @@ export const Product = () => {
           </button>
         ) : (
           <button
-            onClick={() => setCart([...cart, { ...product, quantity: 1 }])}
+            onClick={() =>
+              user?.user
+                ? setCart([...cart, { ...product, quantity: 1 }])
+                : window.alert(
+                    "Necesitas iniciar sesión para poder agregar un producto al carrito"
+                  )
+            }
           >
             agregar al carro
           </button>

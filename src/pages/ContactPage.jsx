@@ -1,9 +1,8 @@
-import{Contact} from "../components/contact/Contact"
+import { Contact } from "../components/contact/Contact";
 export const ContactPage = () => {
   return (
     <>
-    
-<Contact/>    
+      <Contact />
     </>
-  )
-}
+  );
+};

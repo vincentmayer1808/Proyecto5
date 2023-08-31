@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-export const ServiceList = ({therapie, coaching, program}) => {
+export const ServiceList = ({ therapie, coaching, program }) => {
   return (
     <>
       <div>
@@ -14,12 +14,14 @@ export const ServiceList = ({therapie, coaching, program}) => {
               revise la variedades de therapia que ofrecemos
             </p>
             {therapie?.map((service) => (
-<div key={service._id}>
-              <Link  to={`/Service/${service.serviceName}`}>{service.serviceName}</Link>
-            </div>
+              <div key={service._id}>
+                <Link to={`/Service/${service.serviceName}`}>
+                  {service.serviceName}
+                </Link>
+              </div>
             ))}
           </div>
-      
+
           <div>
             <h4>Coaching de vida</h4>
             <p>
@@ -28,19 +30,21 @@ export const ServiceList = ({therapie, coaching, program}) => {
             </p>
             {coaching?.map((service) => (
               <div key={service._id}>
-              <Link  to={`/Service/${service.serviceName}`}>{service.serviceName}</Link>
+                <Link to={`/Service/${service.serviceName}`}>
+                  {service.serviceName}
+                </Link>
               </div>
             ))}
           </div>
 
           <div>
             <h4>Programas</h4>
-            <p>
-              Revise los diferentes programas de 8 semanas que ofrecemos
-            </p>
+            <p>Revise los diferentes programas de 8 semanas que ofrecemos</p>
             {program?.map((service) => (
               <div key={service._id}>
-              <Link  to={`/Service/${service.serviceName}`}>{service.serviceName}</Link>
+                <Link to={`/Service/${service.serviceName}`}>
+                  {service.serviceName}
+                </Link>
               </div>
             ))}
           </div>
