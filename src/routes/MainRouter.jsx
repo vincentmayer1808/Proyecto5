@@ -8,7 +8,7 @@ import {
   UserPage,
   ServicesPage,
   ContactPage,
- 
+  SuccessPage,
 } from "../pages";
 import { useContext, useState } from "react";
 import { ServicesContext } from "../context/services/servicesContext";
@@ -116,7 +116,7 @@ export const MainRouter = ({ user }) => {
             />
           }
         />
-
+<Route path="/success-purchase" element={<SuccessPage/>}/>
         <Route element={<ProtectedRoutes isAllowed={isAllowed} />}>
           <Route
             path="/UserPage"

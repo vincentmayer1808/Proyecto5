@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 import { Login } from "../login/Login";
+import "./navbar.css";
 
 export const NavBar = ({ user, login, logout }) => {
   return (
     <nav className="navbar navbar-dark d-flex  align-items-center justify-content-evenly bg-primary px-2">
       <div className="d-flex flex-column align-items-center justify-content-center">
         <div className="text-light border border-light d-flex flex-column justify-content-center align-items-center p-2">
-         <div>
-         <img src="../../assets/image/logo.png" alt="logo"/>
-         </div>
+          <div >
+            <img src="../../assets/image/logo.png" alt="logo" className="height"/>
+          </div>
           <p>psicologialosrios@gmail.com</p>
           <p>123-456-7890</p>
         </div>

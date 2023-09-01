@@ -78,7 +78,7 @@ export const Allservices = ({ therapie, coaching, program }) => {
           <div className="articles">
             {coaching?.map((service) => (
               <Link key={service._id} to={`/Service/${service.serviceName}`}>
-                <article className="animate__animated animate__backInRight">
+                <article className="text-dark text-decoration-none animate__animated animate__backInRight">
                   <img src={service.image} alt="" />
                   <h4>{service.serviceName}</h4>
                   <p>{service.description}</p>
@@ -108,7 +108,7 @@ export const Allservices = ({ therapie, coaching, program }) => {
           <div className="articles">
             {program?.map((service) => (
               <Link key={service._id} to={`/Service/${service.serviceName}`}>
-                <article className="animate__animated animate__backInLeft">
+                <article className="text-dark animate__animated animate__backInLeft">
                   <img src={service.image} alt="" />
                   <h4>{service.serviceName}</h4>
                   <p>{service.description}</p>

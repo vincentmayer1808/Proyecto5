@@ -10,11 +10,11 @@ export const Product = ({ user, state }) => {
   const [cart, setCart] = useState(storedItems);
 
   useEffect(() => {
-    const service = state?.services?.find((service) => 
-      service.serviceName === type
+    const service = state?.services?.find(
+      (service) => service.serviceName === type
     );
     setProduct(service);
-  }, [state]);
+  }, [param]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -22,33 +22,42 @@ export const Product = ({ user, state }) => {
 
   return (
     <>
-      <section>
-        <h2>{product?.serviceName}</h2>
-        <p>{product?.description}</p>
-        <p>{product?.price}</p>
-        <p>{product?.assisting}</p>
-        <p>{product?.duration}</p>
-        {cart?.map((service) => service._id).includes(product?._id) ? (
-          <button
-            onClick={() =>
-              setCart(cart.filter((service) => service._id !== product._id))
-            }
-          >
-            eliminar del carro
-          </button>
-        ) : (
-          <button
-            onClick={() =>
-              user?.user
-                ? setCart([...cart, { ...product, quantity: 1 }])
-                : window.alert(
-                    "Necesitas iniciar sesión para poder agregar un producto al carrito"
-                  )
-            }
-          >
-            agregar al carro
-          </button>
-        )}
+      <section className="d-flex flex-column flex-md-row justify-content-evenly align-items-center p-2">
+        <div className="p-1">
+          <img src={product?.image} alt="" className="img-fluid"/>
+        </div>
+        <div className="text-center border border-dark rounded shadow-lg p-3 m-2">
+          <h2>{product?.serviceName}</h2>
+          <p>{product?.largeDesc}</p>
+          <div className="d-flex justify-content-around">
+          <p>Precio : {product?.price}CLP</p>
+          <p>Puede asistir hasta {product?.assisting} personas</p>
+          <p>Duración : {product?.duration}</p>
+          </div>
+          {cart?.map((service) => service._id).includes(product?._id) ? (
+            <button
+             className="btn btn-danger"
+              onClick={() =>
+                setCart(cart.filter((service) => service._id !== product._id))
+              }
+            >
+              eliminar del carro
+            </button>
+          ) : (
+            <button
+            className="btn btn-primary"
+              onClick={() =>
+                user?.user
+                  ? setCart([...cart, { ...product, quantity: 1 }])
+                  : window.alert(
+                      "Necesitas iniciar sesión para poder agregar un producto al carrito"
+                    )
+              }
+            >
+              agregar al carro
+            </button>
+          )}
+        </div>
       </section>
     </>
   );

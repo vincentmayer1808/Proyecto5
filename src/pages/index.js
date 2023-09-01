@@ -4,4 +4,5 @@ export*from"./HomePage"
 export*from"./RegisterPage"
 export*from"./ServicePage"
 export*from"./ServicesPage"
+export*from"./SuccessPage"
 

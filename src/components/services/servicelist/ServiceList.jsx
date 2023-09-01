@@ -6,7 +6,7 @@ export const ServiceList = ({ therapie, coaching, program }) => {
     <>
       <div className="text-center">
         <h3>Nuestros Servicios</h3>
-        <div className="d-flex flex-column flex-sm-row justify-content-evenly p-2">
+        <div className="d-flex flex-column flex-md-row justify-content-md-evenly p-2">
           <div>
             <h4>Terapia Psicológica</h4>
             <p>

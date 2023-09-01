@@ -1,8 +1,15 @@
-# React + Vite
+Este proyecto ha sido realizado en el curso del Bootcamp de Desarrollo Web Full Stack de la Universidad del Desarrollo. Se trata de un e-commerce vendiendo servicios psicológicos tal como las terapias y el coaching. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En el cuadro del proyecto, teniamos que realizar un e-commerce que cuenta con el registro y manejo de usuarios, la promoción de productos y la venta de estos. A base de JAVA SCRIPT y NODE.JS, se tenía que producir un front-end "responsive" con REACT.JS y levantar un back-end con EXPRESS.JS que connecta a la base de datos de MONGODB con MONGOOSE. Todo esto se encuentra en esta pagina web desarrollado para Psicología Los Ríos pero que sirve de prototipo para proyectos futuros que necesitan estas manualidades.
 
-Currently, two official plugins are available:
+Al llegar a la pagina, el usuario se encuentra con una barra de navegación grande donde puede apreciar el logo y contacto rapido de la empresa con las diferentes rutas de navegación Primero el inicio, donde se encuentra una breve descripción de la empresa con un listado simple de los diferentes productos, despúes viene los servicios, la pagina de contacto y por fín la de registro de usuario. Tambíen se encuentra un formulario simple para connectarse a su sesión. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La pagina de servicios cuenta con una breve descripción de las diferentes terapias, coaching y programas que ofrece la empresa que al apretar te lleva a la pagina del producto donde uno puede agregar el producto a su carrito de compra si es que el usuario esta registrado.Por su lado, la pagina de contacto cuenta con un formulario simple que crea una consulta a la base de datos y la pagina de registro tambíen cuenta con un formulario que crea el usuario en la base de datos.
+
+Una vez conectado, el usuario puede acceder a su perfil donde se maneja poca información personal para no presionarlo. Esta información puede ser modificada y tambíen eliminada a traves de botones. El carrito de compra se encuentra en esta misma pagina donde se puede modificar la quantidad del producto o eliminar lo del carrito, mostrando la suma total y disponiendo de un boton para pagar.El sistema de pago se hizo con Mercado Pago quíen, una vez el pago hecho, retorna a una pagina que indica el estato del pago y si fue exitoso entonces avisa al usuario que la empresa se pondra en contacto con el.
+
+En este proyecto no se esta pidiendo sistema de reserva lo que sería necesario para un e-commerce de un servicio tal como ese, pero con mas tiempo se planifica realizar un sistema de reserva, tanto como un role de usuario para administradores donde se podra consultar las diferentes compras, agregar horas disponibles y revisar las consultas. Tampoco se esta manejando mucha información de usuario, ni de producto por la falta de contenido generado, pero se puede facilmente agregar estas funcionalidades al deseo de la organización.
+
+En fín, esta aplicación web no es del todo completo pero cuenta con las necesidades requeridas en el cuadro de este proyecto. Quízas se le puede agregar muchas manualidades mas aunque las disponibles funcionan al 100%. ¡Todo se puede mejorar, siempre!
+
+

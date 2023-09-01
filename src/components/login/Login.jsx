@@ -2,7 +2,6 @@
 import { useState } from "react";
 
 export const Login = ({ user, login, logout }) => {
-
   const [isLoading, setIsLoading] = useState(false);
   const initForm = {
     email: "",
@@ -19,12 +18,10 @@ export const Login = ({ user, login, logout }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const spinner = document.getElementById("spinner");
+  
     setIsLoading(true);
-    spinner.classList.remove("visually-hidden");
     await login(formState);
     setIsLoading(false);
-    spinner.classList.add("visually-hidden");
   };
 
   return (
@@ -68,22 +65,27 @@ export const Login = ({ user, login, logout }) => {
                 onChange={onChangeForm}
               />
             </div>
-            <button
+            {isLoading ? (
+              
+              <div
+                id="spinner"
+                className="d-flex justify-content-center text-light mt-2"
+              >
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+           
+            ) : (
+              <button
               className="btn btn-light d-grid col-6 mx-auto mt-2 shadow"
               type="submit"
               id="loginButton"
-              disabled={isLoading}
+              
             >
               Conectarse
             </button>
-            <div
-              id="spinner"
-              className="visually-hidden d-flex justify-content-center text-light mt-2"
-            >
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
+            )}
           </form>
         )}
       </div>
