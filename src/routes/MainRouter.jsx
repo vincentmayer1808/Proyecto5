@@ -109,6 +109,7 @@ export const MainRouter = ({ user }) => {
           element={
             <ServicePage
               user={user}
+              state={state}
               therapie={therapie}
               coaching={coaching}
               program={program}

@@ -3,10 +3,10 @@
 export const Footer = () => {
   return (
     <>
-      <div className="bg-dark text-light d-sm-flex p-2">
+      <div className="bg-primary text-light d-sm-flex">
         <div className="d-flex flex-column align-items-center justify-content-center text-center p-2 ">
           <h3>Nosotros</h3>
-          <p >
+          <p className="text-wrap">
             Somos psicologos calificados que ofrecen variedades de servicios de
             bien estar psicologico, desde la terapia hasta el coaching de vida,
             que sea sesiones individuales o programas grupales.

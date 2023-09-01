@@ -3,12 +3,6 @@ section.products {
     color: black;
 }
 
-section.products h2 {
-    padding: 4vh 0;
-    text-align: center;
-    font-size: 35px;
-}
-
 section.products div.articles {
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +15,7 @@ section.products article {
     border-radius: 5px;
     margin: 5px 5px 2em 5px;
     padding: 5px;
-    width: 275px;
+    width: 300px;
     box-shadow: 0 6px 12px 0 black;
 }
 
@@ -33,36 +27,17 @@ section.products div.articles img {
     border-radius: 5px;
 }
 
-section.products div.articles h3 {
+section.products div.articles h4 {
     text-align: center;
     color: black;
     font-size: 23px;
-    margin-left: 1em;
+    text-decoration: none;
 }
 
-section.products div.articles article div.comprar {
-    display: flex;
-    justify-content: center;
+section.products div.articles article{
+    text-align: center;
+    text-decoration: none;
 }
-
-section.products div.articles article div.comprar button {
-    width: 50%;
-    margin: 1em;
-    padding: 1em;
-    border: 2px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px 0px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 15px;
-    background-color: white;
-}
-
-section.products div.articles article div.comprar button:hover {
-    border-color: #FF2157;
-    cursor: pointer;
-    box-shadow: 0px 5px 10px 0px #FF2157;
-    color: #FF2157;
-    transform: scale(1.1);
-    transition-duration: 300ms;
+section.products div.background{
+    background-color: #F7F7F7;
 }

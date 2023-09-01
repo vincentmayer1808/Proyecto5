@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export const Product = ({ user }) => {
+export const Product = ({ user, state }) => {
   const param = useParams();
   const { type } = param;
   const [product, setProduct] = useState(null);
@@ -11,23 +10,11 @@ export const Product = ({ user }) => {
   const [cart, setCart] = useState(storedItems);
 
   useEffect(() => {
-    const fetchService = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://diversos-consultora.onrender.com/services/${type}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        setProduct(data.detail);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchService();
-  }, []);
+    const service = state?.services?.find((service) => 
+      service.serviceName === type
+    );
+    setProduct(service);
+  }, [state]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

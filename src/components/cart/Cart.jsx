@@ -7,6 +7,11 @@ export const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const deleteCart = () => {
+    if (
+      window.confirm(
+        "Estas seguro de eliminar el carrito?"
+      )
+    )
     setCart([]);
   };
 

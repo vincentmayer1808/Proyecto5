@@ -10,7 +10,7 @@ export const Contact = () => {
   };
 
   const [formState, setFormState] = useState(initForm);
-const  [isLoading,setIsLoading]= useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const onChangeForm = ({ target }) => {
     setFormState({
       ...formState,
@@ -20,20 +20,21 @@ const  [isLoading,setIsLoading]= useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    const spinner = document.getElementById("contactSpinner");
+    spinner.classList.remove("visually-hidden");
+    setIsLoading(true);
     const { username, consult, email } = formState;
     if (username === "" || email === "" || consult === "") {
       window.alert("Debe llenar los campos de nombre, correo y comsulta");
     } else {
-    await addToDB(formState);
-    setFormState(initForm);
+      await addToDB(formState);
     }
-    setIsLoading(false)
+    setIsLoading(false);
+    spinner.classList.add("visually-hidden");
   };
-
   const addToDB = async () => {
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "http://localhost:5174/contact",
         formState,
         {
@@ -43,10 +44,9 @@ const  [isLoading,setIsLoading]= useState(false)
         }
       );
       window.alert("Consulta Enviada");
-    console.log(data)
     } catch (err) {
       console.log(err);
-      window.alert("error en enviar la consulta");
+      window.alert("error al enviar la consulta");
     }
   };
 
@@ -56,7 +56,8 @@ const  [isLoading,setIsLoading]= useState(false)
         <div className="text-center">
           <h2>Contactanos</h2>
           <p>
-           Nos puedes contactar llenando este formulario o escribiendonos a la red social de tu preferencía.
+            Nos puedes contactar llenando este formulario o escribiendonos a la
+            red social de tu preferencía.
           </p>
         </div>
         <div className="p-3">
@@ -123,10 +124,21 @@ const  [isLoading,setIsLoading]= useState(false)
             >
               Envianos tu consulta
             </button>
+            <div
+              id="contactSpinner"
+              className="visually-hidden d-flex justify-content-center text-primary mt-2"
+            >
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
           </form>
         </div>
       </div>
       <div>
+        <img src="../../assets/image/contact.jpg" alt="contacto" className="vw-100"/>
+      </div>
+      <div className="border border-dark rounded shadow text-center m-5 p-2">
         <h2>Nuestro Contacto</h2>
         <p>También nos puedes contactar por estos medios</p>
         <div>

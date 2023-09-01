@@ -7,7 +7,7 @@ import { types } from "../../context/user/userReducer";
 export const User = () => {
   const [state, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
-const [isDisabled, setIsDisabled] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false);
   const initForm = {
     username: state.user.username,
     email: state.user.email,
@@ -25,7 +25,9 @@ const [isDisabled, setIsDisabled] = useState(false)
 
   const deleteUser = async (e) => {
     e.preventDefault();
-    setIsDisabled(true)
+    const spinner = document.getElementById("userSpinner");
+    spinner.classList.remove("visually-hidden");
+    setIsDisabled(true);
     const userId = state.user._id;
     const token = localStorage.getItem("token");
     if (!window.confirm("Estas seguro de querer eliminar tu perfil?")) {
@@ -41,8 +43,9 @@ const [isDisabled, setIsDisabled] = useState(false)
           },
         }
       );
+      spinner.classList.add("visually-hidden");
       navigate("/");
-      setIsDisabled(false)
+      setIsDisabled(false);
       dispatch({
         type: types.desconectUser,
       });
@@ -57,12 +60,14 @@ const [isDisabled, setIsDisabled] = useState(false)
 
   const editUser = async (e) => {
     e.preventDefault();
-    setIsDisabled(true)
+    const spinner = document.getElementById("userSpinner");
+    spinner.classList.remove("visually-hidden");
+    setIsDisabled(true);
     const token = localStorage.getItem("token");
     try {
       const userId = state.user._id;
       const { data } = await axios.put(
-        `http://localhost:5174/users/${userId}`,
+        `https://diversos-consultora.onrender.com/users/${userId}`,
         { userUpdated: formState },
         {
           headers: {
@@ -72,7 +77,8 @@ const [isDisabled, setIsDisabled] = useState(false)
         }
       );
       window.alert("usuario editado");
-      setIsDisabled(false)
+      setIsDisabled(false);
+      spinner.classList.add("visually-hidden");
       dispatch({
         type: types.setUserState,
         payload: data.detail,
@@ -88,36 +94,61 @@ const [isDisabled, setIsDisabled] = useState(false)
   };
 
   return (
-    <div>
+    <div className="container-fluid bg-light text-dark rounded">
       <form>
-        <h2>Revise su perfil</h2>
-        <div>
-          <label htmlFor="username">Su nombre :</label>
+        <h2 className="text-center">Revise su perfil</h2>
+        <div className="form-group g-3">
+          <label className="col-form-label mx-2" htmlFor="username">Su nombre : </label>
           <input
+            className="form-control shadow"
             name="username"
             value={formState.username}
             onChange={onChangeForm}
           />
         </div>
-        <div>
-          <label htmlFor="email">Su correo :</label>
-          <input name="email" value={formState.email} onChange={onChangeForm} />
-        </div>
-        <div>
-          <label htmlFor="phone">Su telefono :</label>
+        <div className="form-group g-3">
+          <label className="col-form-label mx-2" htmlFor="email">Su correo :</label>
           <input
+            className="form-control shadow"
+            name="email"
+            value={formState.email}
+            onChange={onChangeForm}
+          />
+        </div>
+        <div className="form-group g-3">
+          <label className="col-form-label mx-2" htmlFor="phone">Su telefono :</label>
+          <input
+            className="form-control shadow"
             name="phone"
             type="number"
             value={formState.phone}
             onChange={onChangeForm}
           />
         </div>
-        <button type="submit" disabled={isDisabled} onClick={editUser}>
+        <button
+          className="btn btn-primary d-grid col-6 mx-auto mt-2 shadow"
+          type="submit"
+          disabled={isDisabled}
+          onClick={editUser}
+        >
           Editar perfil
         </button>
-        <button type="submit" disabled={isDisabled} onClick={deleteUser}>
+        <button
+          className="btn btn-danger d-grid col-6 mx-auto mt-2 shadow"
+          type="submit"
+          disabled={isDisabled}
+          onClick={deleteUser}
+        >
           Eliminar perfil
         </button>
+        <div
+          id="userSpinner"
+          className="visually-hidden d-flex justify-content-center text-primary mt-2"
+        >
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       </form>
     </div>
   );
