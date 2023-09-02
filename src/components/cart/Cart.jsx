@@ -11,20 +11,21 @@ export const Cart = () => {
     if (window.confirm("Estas seguro de eliminar el carrito?")) setCart([]);
   };
   const buying = async () => {
-    const itemsArray=[]
-   cart.map((product)=>{
-   const item={ 
-    title:`${product.serviceName}`,
-    unit_price: product.price,
-    currency_id:"CLP",
-    quantity: product.quantity
-   }
-   itemsArray.push(item)
-  })
- 
-    const paymentURL = "http://localhost:5174/payment/create-payment";
+    const itemsArray = [];
+    cart.map((product) => {
+      const item = {
+        title: `${product.serviceName}`,
+        unit_price: product.price,
+        currency_id: "CLP",
+        quantity: product.quantity,
+      };
+      itemsArray.push(item);
+    });
+
+    const paymentURL =
+      "https://diversos-consultora.onrender.com/payment/create-payment";
     try {
-      const { data } = await axios.post(paymentURL, itemsArray,{
+      const { data } = await axios.post(paymentURL, itemsArray, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -32,7 +33,7 @@ export const Cart = () => {
       const init_point = data.detail.response.init_point;
       window.location.href = init_point;
     } catch (error) {
-      console.log(error);
+     console.log(error)
     }
   };
 
@@ -51,7 +52,10 @@ export const Cart = () => {
         <h3>Mi carrito de compras</h3>
         <ul className="d-flex flex-column flex-md-row justify-content-evenly align-items-center p-1">
           {cart?.map((product) => (
-            <li className="list-group-item w-50 border border-dark rounded shadow p-2 m-1" key={product._id}>
+            <li
+              className="list-group-item w-50 border border-dark rounded shadow p-2 m-1"
+              key={product._id}
+            >
               <CartProduct producto={product} setCart={setCart} cart={cart} />
               <button
                 className="btn btn-danger"
@@ -80,7 +84,9 @@ export const Cart = () => {
           Reiniciar carrito
         </button>
       </div>
-      <p className="text-center text-danger">¡IMPORTANTE! Para agendar su hora primero debe pagar</p>
+      <p className="text-center text-danger">
+        ¡IMPORTANTE! Para agendar su hora primero debe pagar
+      </p>
     </>
   );
 };

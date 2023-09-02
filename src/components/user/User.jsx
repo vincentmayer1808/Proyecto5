@@ -50,7 +50,6 @@ export const User = () => {
         type: types.desconectUser,
       });
     } catch (err) {
-      console.log(err);
       dispatch({
         type: types.setError,
         payload: err,
@@ -72,7 +71,7 @@ export const User = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            authorization: `Token ${token}`,
+            "authorization": `Token ${token}`,
           },
         }
       );
@@ -84,7 +83,6 @@ export const User = () => {
         payload: data.detail,
       });
     } catch (err) {
-      console.log(err);
       window.alert("error en editar usuario");
       dispatch({
         type: types.setError,

@@ -35,7 +35,7 @@ export const Contact = () => {
   const addToDB = async () => {
     try {
       await axios.post(
-        "http://localhost:5174/contact",
+        "https://diversos-consultora.onrender.com/contact",
         formState,
         {
           headers: {
@@ -45,7 +45,6 @@ export const Contact = () => {
       );
       window.alert("Consulta Enviada");
     } catch (err) {
-      console.log(err);
       window.alert("error al enviar la consulta");
     }
   };
@@ -122,7 +121,7 @@ export const Contact = () => {
               onClick={handleSubmit}
               disabled={isLoading}
             >
-              Envianos tu consulta
+              Envíanos tu consulta
             </button>
             <div
               id="contactSpinner"

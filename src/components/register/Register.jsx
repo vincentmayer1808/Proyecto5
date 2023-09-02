@@ -29,12 +29,10 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     const { username, password, email } = formState;
     if (username === "" || email === "" || password === "") {
       window.alert("Debe llenar los campos de nombre, correo y clave");
     } else {
-      console.log(formState);
       await addToDB(formState);
       setFormState(initForm);
     }
@@ -44,7 +42,7 @@ export const Register = () => {
   const addToDB = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5174/users",
+        "https://diversos-consultora.onrender.com/users",
         formState,
         {
           headers: {
@@ -57,13 +55,11 @@ export const Register = () => {
       const decodedToken = jwt(token);
       window.alert("usuario loggeado");
       navigate("/");
-      console.log(decodedToken);
       dispatch({
         type: types.setUserState,
         payload: decodedToken,
       });
     } catch (err) {
-      console.log(err);
       window.alert("error en loguear usuario");
       dispatch({
         type: types.setError,
@@ -140,7 +136,6 @@ export const Register = () => {
                 onChange={onChangeForm}
               />
             </div>
-
             <button
               className="btn btn-primary d-grid col-6 mx-auto mt-2 shadow"
               type="submit"
